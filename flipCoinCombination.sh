@@ -2,6 +2,7 @@
 declare -A Coin
 declare -A Coin
 declare -A Double
+declare -A allList
 VAR1="H"
 VAr2="T"
 hhCount=0
@@ -152,3 +153,23 @@ echo "Percentage of HHT is $hhtper"
 echo "Percentage of THH is $thhper"
 echo "Percentage of THT is $thtper"
 echo "Percentage of TTH is $tthper"
+allList["hhhCount"]=$hhhper
+allList["tttCount"]=$tttper
+allList["httCount"]=$httper
+allList["hthCount"]=$hthper
+allList["hhtCount"]=$hhtper
+allList["thhCount"]=$thhper
+allList["thtCount"]=$thtper
+allList["tthCount"]=$tthper
+large=1;
+a="${allList["hCount"]}";
+for key in ${!allList[@]}
+do
+        if [[ ${allList[key]} -gt $a ]]
+        then
+                large=$key;
+        else
+                large=$a;
+        fi
+done
+echo "The number with highest percenatge is ${allList[$large]} $large  "
